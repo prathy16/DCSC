@@ -18,7 +18,6 @@ SET t.totalAmnt = 0
 
 match (t:transactions), (tip:transactionsInput), (top:transactionsOutput)  where t.transactionId = tip.transactionId and t.transactionId = top.transactionId
 merge(tip)-[r:IN{ipval:tip.inputVal}]-(t)-[r2:OUT{opval:top.outputVal}]-(top) 
-return t,r,tip, top, r2
 
 match (t:transactions), (top:transactionsOutput) where t.transactionId = top.transactionId
 set t.totalAmnt = t.totalAmnt + toInteger(r2.opval)
