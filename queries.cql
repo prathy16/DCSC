@@ -66,16 +66,16 @@ MATCH (s1:transactions)-[:IN_CLUSTER]->(c1:Centroid {index: 1, iteration: 1})
 WITH avg(toInteger(s1.numberInputs)) as s1numberInputs, avg(toInteger(s1.numberOutputs)) as s1numberOutputs, avg(toInteger(s1.totalAmnt)) as s1totalAmnt
 
 MATCH (s2:transactions)-[:IN_CLUSTER]->(c2:Centroid {index: 2, iteration: 1})
-WITH avg(toInteger(s2.numberInputs)) as s2numberInputs, avg(toInteger(s2.numberOutputs)) as s2numberOutputs, avg(toInteger(s2.totalAmnt)) as s2totalAmnt
+WITH s1numberInputs, s1numberOutputs, s1totalAmnt, avg(toInteger(s2.numberInputs)) as s2numberInputs, avg(toInteger(s2.numberOutputs)) as s2numberOutputs, avg(toInteger(s2.totalAmnt)) as s2totalAmnt
 
 MATCH (s3:transactions)-[:IN_CLUSTER]->(c3:Centroid {index: 3, iteration: 1})
-WITH avg(toInteger(s3.numberInputs)) as s3numberInputs, avg(toInteger(s3.numberOutputs)) as s3numberOutputs, avg(toInteger(s3.totalAmnt)) as s3totalAmnt
+WITH s1numberInputs, s1numberOutputs, s1totalAmnt, s2numberInputs, s2numberOutputs, s2totalAmnt, avg(toInteger(s3.numberInputs)) as s3numberInputs, avg(toInteger(s3.numberOutputs)) as s3numberOutputs, avg(toInteger(s3.totalAmnt)) as s3totalAmnt
 
 MATCH (s4:transactions)-[:IN_CLUSTER]->(c4:Centroid {index: 4, iteration: 1})
-WITH avg(toInteger(s4.numberInputs)) as s4numberInputs, avg(toInteger(s4.numberOutputs)) as s4numberOutputs, avg(toInteger(s4.totalAmnt)) as s4totalAmnt
+WITH s1numberInputs, s1numberOutputs, s1totalAmnt, s2numberInputs, s2numberOutputs, s2totalAmnt, s3numberInputs, s3numberOutputs, s3totalAmnt, avg(toInteger(s4.numberInputs)) as s4numberInputs, avg(toInteger(s4.numberOutputs)) as s4numberOutputs, avg(toInteger(s4.totalAmnt)) as s4totalAmnt
 
 MATCH (s5:transactions)-[:IN_CLUSTER]->(c5:Centroid {index: 5, iteration: 1})
-WITH avg(toInteger(s5.numberInputs)) as s5numberInputs, avg(toInteger(s5.numberOutputs)) as s5numberOutputs, avg(toInteger(s5.totalAmnt)) as s5totalAmnt
+WITH s1numberInputs, s1numberOutputs, s1totalAmnt, s2numberInputs, s2numberOutputs, s2totalAmnt, s3numberInputs, s3numberOutputs, s3totalAmnt, s4numberInputs, s4numberOutputs, s4totalAmnt, avg(toInteger(s5.numberInputs)) as s5numberInputs, avg(toInteger(s5.numberOutputs)) as s5numberOutputs, avg(toInteger(s5.totalAmnt)) as s5totalAmnt
 
 
 CREATE (:Centroid {numberInputs: s1numberInputs, numberOutputs: s1numberOutputs, totalAmnt: s1totalAmnt, index: 1, iteration: 2})
@@ -117,16 +117,16 @@ MATCH (s_1:transactions)-[:IN_CLUSTER]->(c1:Centroid {index: 1, iteration: 2})
 WITH avg(toInteger(s_1.numberInputs)) as s_1numberInputs, avg(toInteger(s_1.numberOutputs)) as s_1numberOutputs, avg(toInteger(s_1.totalAmnt)) as s_1totalAmnt
 
 MATCH (s_2:transactions)-[:IN_CLUSTER]->(c2:Centroid {index: 2, iteration: 2})
-WITH avg(toInteger(s_2.numberInputs)) as s_2numberInputs, avg(toInteger(s_2.numberOutputs)) as s_2numberOutputs, avg(toInteger(s_2.totalAmnt)) as s_2totalAmnt
+WITH s_1numberInputs, s_1numberOutputs, s_1totalAmnt, avg(toInteger(s_2.numberInputs)) as s_2numberInputs, avg(toInteger(s_2.numberOutputs)) as s_2numberOutputs, avg(toInteger(s_2.totalAmnt)) as s_2totalAmnt
 
 MATCH (s_3:transactions)-[:IN_CLUSTER]->(c3:Centroid {index: 3, iteration: 2})
-WITH avg(toInteger(s_3.numberInputs)) as s_3numberInputs, avg(toInteger(s_3.numberOutputs)) as s_3numberOutputs, avg(toInteger(s_3.totalAmnt)) as s_3totalAmnt
+WITH s_1numberInputs, s_1numberOutputs, s_1totalAmnt, s_2numberInputs, s_2numberOutputs, s_2totalAmnt, avg(toInteger(s_3.numberInputs)) as s_3numberInputs, avg(toInteger(s_3.numberOutputs)) as s_3numberOutputs, avg(toInteger(s_3.totalAmnt)) as s_3totalAmnt
 
 MATCH (s_4:transactions)-[:IN_CLUSTER]->(c4:Centroid {index: 4, iteration: 2})
-WITH avg(toInteger(s_4.numberInputs)) as s_4numberInputs, avg(toInteger(s_4.numberOutputs)) as s_4numberOutputs, avg(toInteger(s_4.totalAmnt)) as s_4totalAmnt
+WITH s_1numberInputs, s_1numberOutputs, s_1totalAmnt, s_2numberInputs, s_2numberOutputs, s_2totalAmnt, s_3numberInputs, s_3numberOutputs, s_3totalAmnt, avg(toInteger(s_4.numberInputs)) as s_4numberInputs, avg(toInteger(s_4.numberOutputs)) as s_4numberOutputs, avg(toInteger(s_4.totalAmnt)) as s_4totalAmnt
 
 MATCH (s_5:transactions)-[:IN_CLUSTER]->(c5:Centroid {index: 5, iteration: 2})
-WITH avg(toInteger(s_5.numberInputs)) as s_5numberInputs, avg(toInteger(s_5.numberOutputs)) as s_5numberOutputs, avg(toInteger(s_5.totalAmnt)) as s_5totalAmnt
+WITH s_1numberInputs, s_1numberOutputs, s_1totalAmnt, s_2numberInputs, s_2numberOutputs, s_2totalAmnt, s_3numberInputs, s_3numberOutputs, s_3totalAmnt, s_4numberInputs, s_4numberOutputs, s_4totalAmnt, avg(toInteger(s_5.numberInputs)) as s_5numberInputs, avg(toInteger(s_5.numberOutputs)) as s_5numberOutputs, avg(toInteger(s_5.totalAmnt)) as s_5totalAmnt
 
 
 CREATE (:Centroid {numberInputs: s_1numberInputs, numberOutputs: s_1numberOutputs, totalAmnt: s_1totalAmnt, index: 1, iteration: 3})
